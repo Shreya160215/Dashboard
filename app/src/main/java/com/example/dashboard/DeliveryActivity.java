@@ -28,7 +28,7 @@ public class DeliveryActivity extends AppCompatActivity {
         deliveryList.add(new DeliveryRequest("Priya Mehta", "Data Structures", "Delivered"));
         deliveryList.add(new DeliveryRequest("Rohan Das", "Python Basics", "In Transit"));
 
-        adapter = new DeliveryAdapter(deliveryList);
+        adapter = new DeliveryAdapter(this, deliveryList);
         deliveryRecyclerView.setAdapter(adapter);
     }
 }

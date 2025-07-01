@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+
     private CardView cardAddLibrary, cardDelivery;
 
     @Override
@@ -28,71 +29,69 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize views
+        // Initialize Views
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         toolbar = findViewById(R.id.toolbar);
         cardAddLibrary = findViewById(R.id.card_add_library);
         cardDelivery = findViewById(R.id.card_delivery);
 
-        // Set up toolbar
+        // Setup Toolbar
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Library Admin");
         }
 
-        // Set up drawer toggle
+        // Setup Navigation Drawer Toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar,
+                this,
+                drawerLayout,
+                toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close
         );
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Navigation item selection using if-else
+        // Handle Navigation Item Clicks
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
                 if (id == R.id.nav_dashboard) {
-                    Toast.makeText(MainActivity.this, "Dashboard clicked", Toast.LENGTH_SHORT).show();
+                    // Open Dashboard
                 } else if (id == R.id.nav_books) {
-                    Toast.makeText(MainActivity.this, "Books clicked", Toast.LENGTH_SHORT).show();
-                } else if (id == R.id.nav_users) {
-                    Toast.makeText(MainActivity.this, "Users clicked", Toast.LENGTH_SHORT).show();
-                } else if (id == R.id.nav_issued) {
-                    Toast.makeText(MainActivity.this, "Issued Books clicked", Toast.LENGTH_SHORT).show();
+                    // Open Manage Books
+                } else if (id == R.id.nav_logout) {
+                    // Logout
                 }
 
-                drawerLayout.closeDrawer(GravityCompat.START);
+                drawerLayout.closeDrawers();
                 return true;
             }
         });
 
-        // Card click: Add Your Library
+
+        // Handle Dashboard Card Clicks
         cardAddLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddLibraryActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this, AddLibraryActivity.class));
             }
         });
 
-        // Card click: Manage Deliveries
         cardDelivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DeliveryActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this, DeliveryActivity.class));
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.START)) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();

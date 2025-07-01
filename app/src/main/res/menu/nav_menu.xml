@@ -16,4 +16,7 @@
         android:id="@+id/nav_issued"
         android:title="📖 Issued Books" />
 
+    <item
+        android:id="@+id/nav_logout"
+        android:title="🚪 Logout" />
 </menu>
