@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF6E9">
+
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book: Operating Systems"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#4B2C20"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/tvTrackingStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tracking:\n📦 Book picked up\n🚚 Out for delivery\n✅ Delivered"
+        android:textSize="16sp"
+        android:textColor="#4B2C20"/>
+</LinearLayout>

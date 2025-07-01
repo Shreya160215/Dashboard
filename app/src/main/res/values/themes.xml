@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Dashboard" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Dashboard" parent="Base.Theme.Dashboard" />
+
+    <!-- Custom Navigation Menu Style -->
+    <style name="NavigationViewStyle" parent="Widget.Material3.NavigationView">
+        <item name="android:background">#FFF6E9</item>
+        <item name="itemTextColor">#4B2C20</item>
+        <item name="itemIconTint">#D38D73</item>
+        <item name="itemRippleColor">#FFE9CC</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
